@@ -1,0 +1,60 @@
+# format and static analysis
+
+name: Terraform Lint
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**.tf'
+      - 'modules/**'
+      - 'environments/**'
+      - '.github/workflows/terraform-lint.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '**.tf'
+      - 'modules/**'
+      - 'environments/**'
+      - '.github/workflows/terraform-lint.yml'
+
+env:
+  TF_WORKING_DIR: environments/dev
+
+jobs:
+  fmt:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.5.0"
+          terraform_wrapper: false
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive -diff
+
+  tflint:
+    name: TFLint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.TF_WORKING_DIR }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: "latest"
+
+      - name: TFLint Init
+        run: tflint --init
+
+      - name: TFLint
+        run: tflint -f compact --minimum-failure-severity=warning

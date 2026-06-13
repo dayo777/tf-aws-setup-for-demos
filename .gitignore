@@ -1,0 +1,62 @@
+# Terraform local state and crash logs
+*.tfstate
+*.tfstate.*
+terraform.tfstate*
+crash.log
+crash.*
+
+# Terraform directories
+.terraform/
+**/.terraform/
+
+# Terraform variable definitions and override files
+*.tfvars
+*.tfvars.json
+!environments/**/terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform plan files and local CLI configs
+*.tfplan
+*.tfplan.*
+.terraformrc
+terraform.rc
+
+# Local environment files
+*.env
+.env.*
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Swap and temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Optional: if you use Python/virtual environments locally
+venv/
+ENV/
+env/
+.venv/
+
+# Optional: if you use JetBrains project files
+*.idea/
+*.iml
