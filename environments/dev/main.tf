@@ -1,15 +1,13 @@
-module "networking" {
+module "dev_networking_us_east_1" {
   source = "../../modules/networking"
 
-  name             = var.vpc_name
-  cidr             = var.cidr
-  enable_ipv6      = var.enable_ipv6
-  azs              = var.azs
-  public_subnets   = var.public_subnets
-  private_subnets  = var.private_subnets
-  database_subnets = var.database_subnets
+  name            = var.dev_vpc_name_us_east_1
+  cidr            = var.dev_cidr_us_east_1
+  azs             = var.dev_azs_us_east_1
+  public_subnets  = var.dev_public_subnets_us_east_1
+  private_subnets = var.dev_private_subnets_us_east_1
 
-  enable_nat_gateway = var.enable_nat_gateway
-  enable_vpn_gateway = var.enable_vpn_gateway
+  enable_nat_gateway = var.dev_enable_nat_gateway_us_east_1
+  enable_vpn_gateway = var.dev_enable_vpn_gateway_us_east_1
   tags               = var.tags
 }

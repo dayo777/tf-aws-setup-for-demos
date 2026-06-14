@@ -1,10 +1,9 @@
 # AWS Setup for Demos
 
-I personally use this repository to quickly setup my AWS environment for personal and proof-of-concept testing of my projects. It contains Terraform configurations that allow me to rapidly create and tear down AWS resources as needed.
+Repo contains Terraform configurations that allow me to rapidly create and tear down AWS resources as needed. The `terraform_fmt_and_validate.py` script should **always be run locally** before pushing code to version control. This ensures that all Terraform configurations are properly formatted and valid before being committed to the repository.
 
-## Format and Validate Script
-
-⚠️ **IMPORTANT DISCLAIMER**: The `terraform_fmt_and_validate.py` script should **always be run locally** before pushing code to version control. This ensures that all Terraform configurations are properly formatted and valid before being committed to the repository.
+## Variable Mapping Disclaimer
+⚠️ **IMPORTANT DISCLAIMER**: For this to work, the variables need to map correctly across 3 layers: The Module, The dev/prod environment and the dev/prod values.
 
 ## Folder Structure
 
@@ -32,4 +31,3 @@ Contains utility scripts for managing the infrastructure:
 ## License
 
 This repository is licensed under the MIT License. See the `LICENSE` file for details.
-

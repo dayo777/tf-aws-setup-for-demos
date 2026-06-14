@@ -23,16 +23,6 @@ variable "public_subnets" {
   description = "the public subnets in the VPC"
 }
 
-variable "database_subnets" {
-  type        = list(string)
-  description = "cidr blocks for database subnets in the vpc"
-}
-
-variable "enable_ipv6" {
-  type        = bool
-  description = "Whether to enable IPv6 for this VPC"
-}
-
 variable "enable_nat_gateway" {
   type        = bool
   description = "Whether to enable NAT gateway for this VPC"

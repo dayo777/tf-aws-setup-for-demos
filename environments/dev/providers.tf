@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
+  region = var.dev_region_us_east_1
 
   default_tags {
     tags = {
